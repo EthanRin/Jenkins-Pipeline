@@ -39,6 +39,13 @@ pipeline{
             steps{
                 echo "deploying the code to $PRODUCTION_ENVIRONMENT"
             }
+            post{
+                success{
+                    mail to: "sovanpanhaarinn@gmail.com",
+                    subject: "Build Status Email:",
+                    body: "Git-Pipeline build was successful!"
+                }
+            }
         }
     }
 }
